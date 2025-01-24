@@ -14,7 +14,6 @@ export function CreateTodo() {
         }
 
         try {
-
             const response = await axios.posr("http://localhost:4000/todos", {
                 //Here the second argument is  always the request body in the poast request
                 title,
@@ -28,7 +27,6 @@ export function CreateTodo() {
         } catch (err) {
             console.log("Error while posting the Todos", err);
             alert("Error Occured");
-
         }
     }
 
