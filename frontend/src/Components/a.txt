@@ -1,0 +1,27 @@
+ <input type="text" placeholder="Enter the Title" onChange={(e) => {
+            setTitle(e.target.value);//When ever the input in chaange the current input value in the setTitle
+        }} />
+
+        <br />
+
+        <input type="text" placeholder="Enter the Discrption" onChange={(e) => {
+            setDiscription(e.target.value);
+        }} />
+
+        <button onClick={async function () {
+            try {
+                const response = await axios.post("http://localhost:4000/todos", {
+                    title: title,
+                    discription: discription
+                }, {
+                    headers: {
+                        "content-Type": "application/json"
+                    }
+                })
+                console.log("Todo is created!!", response.data);
+                alert("Todo is createds sucessFully")
+            } catch (err) {
+                console.error("Error creating todo:", err);
+                alert("Failed to create Todo!");
+            }
+        }}>RockStar-Mandeep!!(AddTodo)</button>
